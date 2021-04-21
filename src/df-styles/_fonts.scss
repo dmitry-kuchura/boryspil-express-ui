@@ -1,0 +1,60 @@
+@import "fonts.variables";
+
+//h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .display-1, .display-2, .display-3, .display-4{
+//    font-family: $df-heading-font-family !important;
+//}
+
+h1, .h1 { // add
+  letter-spacing: $df-h1-letter-spacing !important;
+}
+
+h2, .h2 { // add
+  letter-spacing: $df-h2-letter-spacing !important;
+}
+
+h3, .h3 { // add
+  letter-spacing: $df-h3-letter-spacing !important;
+}
+
+h4, .h4 { // add
+  letter-spacing: $df-h4-letter-spacing !important;
+}
+
+h5, .h5 { // add
+  letter-spacing: $df-h5-letter-spacing !important;
+}
+
+h6, .h6 { // add
+  letter-spacing: $df-h6-letter-spacing !important;
+}
+
+.mat-display-1 { // add
+  letter-spacing: $df-display1-letter-spacing !important;
+}
+
+.mat-display-2 { // add
+  letter-spacing: $df-display2-letter-spacing !important;
+}
+
+.mat-display-3 { // add
+  letter-spacing: $df-display3-letter-spacing !important;
+}
+
+.mat-display-4 { // add
+  letter-spacing: $df-display4-letter-spacing !important;
+}
+
+caption { // add
+  font-size: $df-caption-font-size;
+  letter-spacing: $df-caption-letter-spacing
+}
+
+blockquote { //add
+  font-style: $df-blockquote-font-style;
+  letter-spacing: $df-blockquote-letter-spacing;
+  line-height: $df-blockquote-line-height;
+}
+
+mark { //add
+  color: $df-mark-color;
+}

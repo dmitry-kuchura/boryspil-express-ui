@@ -1,0 +1,68 @@
+.depart-time, .arrival-time {
+  font-size: 0.85em;
+}
+
+.depart-station-name, .arrival-station-name {
+  font-size: 0.75em;
+}
+
+.trip-price {
+  text-align: center;
+  display: flex;
+}
+
+.carrier-logo {
+  max-width: 100px;
+}
+
+.second-class-price {
+  min-width: 4em;
+  background-color: #00a9e0;
+  background-position: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.selected-second {
+  height: 1em;
+  background-color: #00a9e0;
+  background-size: cover;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+}
+
+
+.selected-first {
+  height: 1em;
+  background-color: #005eb8;
+  background-size: cover;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+}
+
+.first-class-price {
+  min-width: 4em;
+  font-size: 18px;
+  background-color: #005eb8;
+  color: #ffffff;
+  font-weight: bold;
+  background-position: center;
+}
+
+.price {
+  margin: 24px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  min-width: 4em;
+}
+
+.not-available-text {
+  font-size: 13px;
+}
+
+.not-available {
+  min-width: 4em;
+  margin: 24px 0;
+}
+
+

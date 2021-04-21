@@ -1,0 +1,3927 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Api Documentation",
+    "version": "1.0",
+    "title": "Api Documentation",
+    "termsOfService": "urn:tos",
+    "contact": {},
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "host": "10.65.145.253:8070",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "log-controller",
+      "description": "Log Controller"
+    },
+    {
+      "name": "rail-kit-direct",
+      "description": "Rail Kit Direct"
+    },
+    {
+      "name": "redirect-controller",
+      "description": "Redirect Controller"
+    },
+    {
+      "name": "settings-controller",
+      "description": "Settings Controller"
+    },
+    {
+      "name": "traffic-hub-controller",
+      "description": "Traffic Hub Controller"
+    },
+    {
+      "name": "transporters-controller",
+      "description": "Transporters Controller"
+    }
+  ],
+  "paths": {
+    "/logs": {
+      "get": {
+        "tags": [
+          "log-controller"
+        ],
+        "summary": "getLogs",
+        "operationId": "getLogsUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "description": "pageIndex",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "pageSize",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "description": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/LogInfo"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/logs/count": {
+      "get": {
+        "tags": [
+          "log-controller"
+        ],
+        "summary": "getLogsCount",
+        "operationId": "getLogsCountUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Count"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/logs/{id}": {
+      "get": {
+        "tags": [
+          "log-controller"
+        ],
+        "summary": "getLog",
+        "operationId": "getLogUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/LogInfo"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redirect/**/{path}": {
+      "get": {
+        "tags": [
+          "redirect-controller"
+        ],
+        "summary": "helloGET",
+        "operationId": "helloGETUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestBody",
+            "description": "requestBody",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "head": {
+        "tags": [
+          "redirect-controller"
+        ],
+        "summary": "helloGET",
+        "operationId": "helloGETUsingHEAD",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestBody",
+            "description": "requestBody",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "redirect-controller"
+        ],
+        "summary": "helloGET",
+        "operationId": "helloGETUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestBody",
+            "description": "requestBody",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "redirect-controller"
+        ],
+        "summary": "helloGET",
+        "operationId": "helloGETUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestBody",
+            "description": "requestBody",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "redirect-controller"
+        ],
+        "summary": "helloGET",
+        "operationId": "helloGETUsingDELETE",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestBody",
+            "description": "requestBody",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      },
+      "options": {
+        "tags": [
+          "redirect-controller"
+        ],
+        "summary": "helloGET",
+        "operationId": "helloGETUsingOPTIONS",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestBody",
+            "description": "requestBody",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      },
+      "patch": {
+        "tags": [
+          "redirect-controller"
+        ],
+        "summary": "helloGET",
+        "operationId": "helloGETUsingPATCH",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestBody",
+            "description": "requestBody",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rk/calendar-overview": {
+      "post": {
+        "tags": [
+          "rail-kit-direct"
+        ],
+        "summary": "calendar",
+        "operationId": "calendarUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "calendarOverwiew",
+            "description": "calendarOverwiew",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CalendarOverwiew"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CalendarOverwiewResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rk/carts": {
+      "post": {
+        "tags": [
+          "rail-kit-direct"
+        ],
+        "summary": "createCart",
+        "operationId": "createCartUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CartRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CartResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rk/carts/{cartId}": {
+      "get": {
+        "tags": [
+          "rail-kit-direct"
+        ],
+        "summary": "getCart",
+        "operationId": "getCartUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "cartId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CartResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rk/carts/{cartId}/selected-offers/offerId": {
+      "post": {
+        "tags": [
+          "rail-kit-direct"
+        ],
+        "summary": "cartUpdate",
+        "operationId": "cartUpdateUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "cartId",
+            "in": "path",
+            "description": "cartId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "offerId",
+            "in": "path",
+            "description": "offerId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CartRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CartResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rk/itineraries/{itineraryId}": {
+      "get": {
+        "tags": [
+          "rail-kit-direct"
+        ],
+        "summary": "itinerary",
+        "operationId": "itineraryUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "itineraryId",
+            "in": "path",
+            "description": "itineraryId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ItinerariesResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rk/offers/{offerId}": {
+      "get": {
+        "tags": [
+          "rail-kit-direct"
+        ],
+        "summary": "offers",
+        "operationId": "offersUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "offerId",
+            "in": "path",
+            "description": "offerId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OffersResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rk/orders": {
+      "post": {
+        "tags": [
+          "rail-kit-direct"
+        ],
+        "summary": "createOrder",
+        "operationId": "createOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OrdersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OrdersResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rk/orders/{orderId}": {
+      "get": {
+        "tags": [
+          "rail-kit-direct"
+        ],
+        "summary": "getOrder",
+        "operationId": "getOrderUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "include",
+            "in": "query",
+            "description": "include",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "orderId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OrdersResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rk/orders/{orderId}/actors": {
+      "put": {
+        "tags": [
+          "rail-kit-direct"
+        ],
+        "summary": "putActors",
+        "operationId": "putActorsUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "orderId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ActorRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ActorResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rk/orders/{orderId}/payment-options": {
+      "put": {
+        "tags": [
+          "rail-kit-direct"
+        ],
+        "summary": "putPaymentOptions",
+        "operationId": "putPaymentOptionsUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "orderId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PaymentOptions"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PaymentOptionsResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rk/orders/{orderId}/recipient-emails": {
+      "put": {
+        "tags": [
+          "rail-kit-direct"
+        ],
+        "summary": "putRecipientEmails",
+        "operationId": "putRecipientEmailsUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "orderId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RecipientEmails"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RecipientEmailsResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rk/orders/{orderId}/ticketing-options": {
+      "put": {
+        "tags": [
+          "rail-kit-direct"
+        ],
+        "summary": "putTicketingOptions",
+        "operationId": "putTicketingOptionsUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "orderId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TicketingOptionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TicketingOptionsResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rk/search": {
+      "post": {
+        "tags": [
+          "rail-kit-direct"
+        ],
+        "summary": "search",
+        "operationId": "searchUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "searchRequest",
+            "description": "searchRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SearchRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SearchResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rk/search/{searchId}": {
+      "get": {
+        "tags": [
+          "rail-kit-direct"
+        ],
+        "summary": "travelOffersSearch",
+        "operationId": "travelOffersSearchUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "scrollToken",
+            "in": "query",
+            "description": "scrollToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "searchId",
+            "in": "path",
+            "description": "searchId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SearchResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rk/tickets": {
+      "post": {
+        "tags": [
+          "rail-kit-direct"
+        ],
+        "summary": "getTickets",
+        "operationId": "getTicketsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "query",
+            "description": "orderId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TicketsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TicketsResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/settings": {
+      "get": {
+        "tags": [
+          "settings-controller"
+        ],
+        "summary": "Get all settings",
+        "operationId": "getSettingsUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RailkitSetting"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "settings-controller"
+        ],
+        "summary": "Set all settings",
+        "operationId": "setSettingsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "railkitSetting",
+            "description": "railkitSetting",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RailkitSetting"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RailkitSetting"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/settings/itineraries/**": {
+      "get": {
+        "tags": [
+          "settings-controller"
+        ],
+        "summary": "Get itineraries for mock",
+        "operationId": "itineraryUsingGET_1",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "settings-controller"
+        ],
+        "summary": "Set itineraries for mock",
+        "operationId": "setItineraryUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "itinerariesResponse",
+            "description": "itinerariesResponse",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ItinerariesResponse"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/settings/offers/**": {
+      "get": {
+        "tags": [
+          "settings-controller"
+        ],
+        "summary": "Get offer for mock",
+        "operationId": "getOfferUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "settings-controller"
+        ],
+        "summary": "Set offer for mock",
+        "operationId": "setOfferUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "offersResponse",
+            "description": "offersResponse",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OffersResponse"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/settings/orders/**": {
+      "get": {
+        "tags": [
+          "settings-controller"
+        ],
+        "summary": "Get orders for mock",
+        "operationId": "orderUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "settings-controller"
+        ],
+        "summary": "Set orders for mock",
+        "operationId": "setOrdersUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "ordersResponse",
+            "description": "ordersResponse",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OrdersResponse"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/settings/search": {
+      "get": {
+        "tags": [
+          "settings-controller"
+        ],
+        "summary": "Get current mock search",
+        "operationId": "getSearchUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "settings-controller"
+        ],
+        "summary": "Set search for mock",
+        "operationId": "setSearchUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "searchResponse",
+            "description": "searchResponse",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SearchResponse"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/th/find": {
+      "get": {
+        "tags": [
+          "traffic-hub-controller"
+        ],
+        "summary": "Find traffic hub by name",
+        "operationId": "findTrafficHubUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TrafficHub"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/transporter/add": {
+      "post": {
+        "tags": [
+          "transporters-controller"
+        ],
+        "summary": "addPhoto",
+        "operationId": "addPhotoUsingPOST",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "description",
+            "in": "query",
+            "description": "description",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "image",
+            "in": "formData",
+            "description": "image",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "description": "title",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/transporter/{id}": {
+      "get": {
+        "tags": [
+          "transporters-controller"
+        ],
+        "summary": "getPhoto",
+        "operationId": "getPhotoUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "Accommodation": {
+      "type": "object",
+      "properties": {
+        "availableSlots": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "category": {
+          "type": "string"
+        },
+        "classification": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "pricingMode": {
+          "type": "string"
+        },
+        "product": {
+          "$ref": "#/definitions/Product_"
+        },
+        "travelerReferences": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "Accommodation"
+    },
+    "AccommodationId": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "methods": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "AccommodationId"
+    },
+    "AccommodationPreference": {
+      "type": "object",
+      "properties": {
+        "availablePreferences": {
+          "$ref": "#/definitions/AvailablePreferences"
+        },
+        "segmentId": {
+          "type": "string"
+        }
+      },
+      "title": "AccommodationPreference"
+    },
+    "Actor": {
+      "type": "object",
+      "properties": {
+        "dateOfBirth": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "orderItemIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItemId"
+          }
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "Actor"
+    },
+    "ActorId": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "methods": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "ActorId"
+    },
+    "ActorRequest": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      },
+      "title": "ActorRequest"
+    },
+    "ActorResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DataActors"
+          }
+        }
+      },
+      "title": "ActorResponse"
+    },
+    "Admission": {
+      "type": "object",
+      "properties": {
+        "availableSlots": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "id": {
+          "type": "string"
+        },
+        "includedAccommodationIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IncludedAccommodationId"
+          }
+        },
+        "priceDetails": {
+          "$ref": "#/definitions/PriceDetails"
+        },
+        "pricingMode": {
+          "type": "string"
+        },
+        "products": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Product_"
+          }
+        },
+        "providerReference": {
+          "type": "string"
+        },
+        "travelerReferences": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "Admission"
+    },
+    "AdmissionId": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "methods": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "AdmissionId"
+    },
+    "Admissions": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "priceDetails": {
+          "$ref": "#/definitions/PriceDetails"
+        },
+        "pricingMode": {
+          "type": "string"
+        },
+        "products": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Products"
+          }
+        },
+        "travelerReferences": {
+          "type": "string"
+        }
+      },
+      "title": "Admissions"
+    },
+    "AfterSalesConditions": {
+      "type": "object",
+      "properties": {
+        "exchangeConditions": {
+          "$ref": "#/definitions/ExchangeConditions"
+        },
+        "refundConditions": {
+          "$ref": "#/definitions/RefundConditions"
+        }
+      },
+      "title": "AfterSalesConditions"
+    },
+    "Amount": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        }
+      },
+      "title": "Amount"
+    },
+    "Ancillaries": {
+      "type": "object",
+      "title": "Ancillaries"
+    },
+    "AppliedReductions": {
+      "type": "object",
+      "title": "AppliedReductions"
+    },
+    "AvailablePreferences": {
+      "type": "object",
+      "properties": {
+        "environmentOptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nearToOption": {
+          "type": "boolean"
+        },
+        "positionOptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "specifiedPlaceOption": {
+          "type": "boolean"
+        }
+      },
+      "title": "AvailablePreferences"
+    },
+    "BasicTransportInformation": {
+      "type": "object",
+      "properties": {
+        "carrierCode": {
+          "type": "string"
+        },
+        "transportType": {
+          "type": "string"
+        },
+        "vehicleCategory": {
+          "type": "string"
+        },
+        "vehicleCode": {
+          "type": "string"
+        }
+      },
+      "title": "BasicTransportInformation"
+    },
+    "CalendarCriteria": {
+      "type": "object",
+      "properties": {
+        "country": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "destination": {
+          "type": "string"
+        },
+        "distributor": {
+          "type": "string"
+        },
+        "endDate": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "outwardOfferId": {
+          "type": "string"
+        },
+        "productCodes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "returnTripProducts": {
+          "type": "boolean"
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "travelClass": {
+          "type": "string"
+        },
+        "travelers": {
+          "$ref": "#/definitions/Travelers"
+        }
+      },
+      "title": "CalendarCriteria"
+    },
+    "CalendarOverwiew": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "type": "string"
+        },
+        "destination": {
+          "type": "string"
+        },
+        "distributor": {
+          "type": "string"
+        },
+        "endDate": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string"
+        }
+      },
+      "title": "CalendarOverwiew"
+    },
+    "CalendarOverwiewResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/DataCalendar"
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Warning"
+          }
+        }
+      },
+      "title": "CalendarOverwiewResponse"
+    },
+    "CalendarPrice": {
+      "type": "object",
+      "properties": {
+        "departureDate": {
+          "type": "string"
+        },
+        "flexibilityLevel": {
+          "type": "string"
+        },
+        "price": {
+          "$ref": "#/definitions/Price"
+        },
+        "travelClass": {
+          "type": "string"
+        },
+        "withRestrictions": {
+          "type": "boolean"
+        }
+      },
+      "title": "CalendarPrice"
+    },
+    "Card": {
+      "type": "object",
+      "properties": {
+        "vendorCode": {
+          "type": "string"
+        }
+      },
+      "title": "Card"
+    },
+    "CartRequest": {
+      "type": "object",
+      "properties": {
+        "offerId": {
+          "type": "string"
+        }
+      },
+      "title": "CartRequest"
+    },
+    "CartResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/CartResponseData"
+        }
+      },
+      "title": "CartResponse"
+    },
+    "CartResponseData": {
+      "type": "object",
+      "properties": {
+        "creationTime": {
+          "type": "string"
+        },
+        "expirationTime": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "selectedOffers": {
+          "$ref": "#/definitions/SelectedOffers"
+        },
+        "totalPrice": {
+          "$ref": "#/definitions/TotalPrice"
+        },
+        "travelers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Travelers"
+          }
+        }
+      },
+      "title": "CartResponseData"
+    },
+    "Condition": {
+      "type": "object",
+      "properties": {
+        "condition": {
+          "type": "string"
+        }
+      },
+      "title": "Condition"
+    },
+    "Conditions": {
+      "type": "object",
+      "properties": {
+        "condition": {
+          "type": "string"
+        },
+        "conditionType": {
+          "type": "string"
+        }
+      },
+      "title": "Conditions"
+    },
+    "Count": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "Count"
+    },
+    "Criteria": {
+      "type": "object",
+      "properties": {
+        "searchCriteria": {
+          "$ref": "#/definitions/SearchCriteria"
+        }
+      },
+      "title": "Criteria"
+    },
+    "DataActors": {
+      "type": "object",
+      "properties": {
+        "dateOfBirth": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "orderItemIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItemId"
+          }
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "DataActors"
+    },
+    "DataCalendar": {
+      "type": "object",
+      "properties": {
+        "calendarCriteria": {
+          "$ref": "#/definitions/CalendarCriteria"
+        },
+        "calendarPrices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CalendarPrice"
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "timeToLive": {
+          "type": "string"
+        }
+      },
+      "title": "DataCalendar"
+    },
+    "DataItinerary": {
+      "type": "object",
+      "properties": {
+        "arrivalDateTime": {
+          "type": "string"
+        },
+        "basicTransportInformation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BasicTransportInformation"
+          }
+        },
+        "bookableStatus": {
+          "type": "string"
+        },
+        "departureDateTime": {
+          "type": "string"
+        },
+        "destination": {
+          "$ref": "#/definitions/Station"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "ecoUrl": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "includesANightTrain": {
+          "type": "boolean"
+        },
+        "numberOfChanges": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "origin": {
+          "$ref": "#/definitions/Station"
+        },
+        "reconstructionId": {
+          "type": "string"
+        },
+        "segments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Segment"
+          }
+        }
+      },
+      "title": "DataItinerary"
+    },
+    "DataSearch": {
+      "type": "object",
+      "properties": {
+        "criteria": {
+          "$ref": "#/definitions/Criteria"
+        },
+        "id": {
+          "type": "string"
+        },
+        "scrollToken": {
+          "$ref": "#/definitions/ScrollToken"
+        },
+        "timeRange": {
+          "$ref": "#/definitions/TimeRange"
+        },
+        "timeToLive": {
+          "type": "string"
+        },
+        "travelOffers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TravelOffer"
+          }
+        }
+      },
+      "title": "DataSearch"
+    },
+    "DateTime": {
+      "type": "object",
+      "properties": {
+        "departure": {
+          "type": "string"
+        }
+      },
+      "title": "DateTime"
+    },
+    "DeliveryInfo": {
+      "type": "object",
+      "properties": {
+        "recipientEmails": {
+          "$ref": "#/definitions/RecipientEmails"
+        }
+      },
+      "title": "DeliveryInfo"
+    },
+    "Document": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "boolean"
+        },
+        "documentType": {
+          "type": "string"
+        },
+        "groupReferences": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "history": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/History"
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "mediaType": {
+          "type": "string"
+        },
+        "relatedActorsIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RelatedActorsId"
+          }
+        },
+        "relatedTicketIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RelatedTicketId"
+          }
+        }
+      },
+      "title": "Document"
+    },
+    "ExchangeConditions": {
+      "type": "object",
+      "properties": {
+        "isExchangeable": {
+          "type": "boolean"
+        }
+      },
+      "title": "ExchangeConditions"
+    },
+    "FinancialTransaction": {
+      "type": "object",
+      "properties": {
+        "confirmationDate": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "paymentBreakdown": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PaymentBreakdown"
+          }
+        },
+        "paymentRecordId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "transactionType": {
+          "type": "string"
+        }
+      },
+      "title": "FinancialTransaction"
+    },
+    "GlobalTravelClass": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        }
+      },
+      "title": "GlobalTravelClass"
+    },
+    "Headers": {
+      "type": "object",
+      "properties": {
+        "accept": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "acceptEncoding": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "acceptLanguage": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "authorization": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cacheControl": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "connection": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contentLength": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contentType": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "date": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "host": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "origin": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "postmanToken": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "secFetchMode": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "secFetchSite": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "userAgent": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "vary": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "Headers"
+    },
+    "History": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "actionDate": {
+          "type": "string"
+        },
+        "deliveryInfo": {
+          "$ref": "#/definitions/DeliveryInfo"
+        }
+      },
+      "title": "History"
+    },
+    "Included": {
+      "type": "object",
+      "properties": {
+        "documents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Document"
+          }
+        },
+        "financialTransactions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FinancialTransaction"
+          }
+        },
+        "tickets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Ticket"
+          }
+        }
+      },
+      "title": "Included"
+    },
+    "IncludedAccommodationId": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "IncludedAccommodationId"
+    },
+    "Issuance": {
+      "type": "object",
+      "properties": {
+        "issuanceDateTime": {
+          "type": "string"
+        },
+        "price": {
+          "$ref": "#/definitions/Price"
+        },
+        "ticketingOption": {
+          "$ref": "#/definitions/TicketingOption"
+        }
+      },
+      "title": "Issuance"
+    },
+    "ItinerariesResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/DataItinerary"
+        }
+      },
+      "title": "ItinerariesResponse"
+    },
+    "Itinerary": {
+      "type": "object",
+      "properties": {
+        "arrivalDateTime": {
+          "type": "string"
+        },
+        "basicTransportInformation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BasicTransportInformation"
+          }
+        },
+        "bookableStatus": {
+          "type": "string"
+        },
+        "departureDateTime": {
+          "type": "string"
+        },
+        "destination": {
+          "$ref": "#/definitions/Station"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "ecoUrl": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "includesANightTrain": {
+          "type": "boolean"
+        },
+        "numberOfChanges": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "origin": {
+          "$ref": "#/definitions/Station"
+        },
+        "reconstructionId": {
+          "type": "string"
+        },
+        "segments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderSegment"
+          }
+        }
+      },
+      "title": "Itinerary"
+    },
+    "ItineraryId": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "methods": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "ItineraryId"
+    },
+    "LinkedSegment": {
+      "type": "object",
+      "properties": {
+        "segmentId": {
+          "type": "string"
+        }
+      },
+      "title": "LinkedSegment"
+    },
+    "LinkedSegments": {
+      "type": "object",
+      "properties": {
+        "segmentId": {
+          "type": "string"
+        }
+      },
+      "title": "LinkedSegments"
+    },
+    "LogInfo": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "body": {
+          "type": "object"
+        },
+        "correlation": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "headers": {
+          "$ref": "#/definitions/Headers"
+        },
+        "method": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "remote": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        }
+      },
+      "title": "LogInfo"
+    },
+    "MethodOfPayment": {
+      "type": "object",
+      "properties": {
+        "card": {
+          "$ref": "#/definitions/Card"
+        },
+        "methodOfPaymentCode": {
+          "type": "string"
+        }
+      },
+      "title": "MethodOfPayment"
+    },
+    "OfferGlobalTravelClass": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        }
+      },
+      "title": "OfferGlobalTravelClass"
+    },
+    "OfferTotalPrice": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        }
+      },
+      "title": "OfferTotalPrice"
+    },
+    "OfferTraveler": {
+      "type": "object",
+      "properties": {
+        "dateOfBirth": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "OfferTraveler"
+    },
+    "OffersData": {
+      "type": "object",
+      "properties": {
+        "accommodationCategory": {
+          "type": "string"
+        },
+        "accommodationPreferences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AccommodationPreference"
+          }
+        },
+        "accommodations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Accommodation"
+          }
+        },
+        "admissions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Admission"
+          }
+        },
+        "areCorporateCodesApplied": {
+          "type": "boolean"
+        },
+        "areReductionCardsApplied": {
+          "type": "boolean"
+        },
+        "containsIncludedAncillaries": {
+          "type": "boolean"
+        },
+        "direction": {
+          "type": "string"
+        },
+        "flexibilityLevel": {
+          "type": "string"
+        },
+        "globalTravelClass": {
+          "$ref": "#/definitions/GlobalTravelClass"
+        },
+        "id": {
+          "type": "string"
+        },
+        "itineraryId": {
+          "$ref": "#/definitions/ItineraryId"
+        },
+        "lowestAvailableSlots": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ticketingOptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TicketingOption"
+          }
+        },
+        "totalPrice": {
+          "$ref": "#/definitions/OfferTotalPrice"
+        },
+        "travelers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OfferTraveler"
+          }
+        },
+        "withRestrictions": {
+          "type": "boolean"
+        }
+      },
+      "title": "OffersData"
+    },
+    "OffersResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OffersData"
+        }
+      },
+      "title": "OffersResponse"
+    },
+    "OrderCondition": {
+      "type": "object",
+      "properties": {
+        "condition": {
+          "type": "string"
+        },
+        "conditionType": {
+          "type": "string"
+        }
+      },
+      "title": "OrderCondition"
+    },
+    "OrderItem": {
+      "type": "object",
+      "properties": {
+        "admissions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Admission"
+          }
+        },
+        "direction": {
+          "type": "string"
+        },
+        "groupReference": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "itinerary": {
+          "$ref": "#/definitions/Itinerary"
+        },
+        "offerAccommodationCategory": {
+          "type": "string"
+        },
+        "offerFlexibilityLevel": {
+          "type": "string"
+        },
+        "offerGlobalTravelClass": {
+          "$ref": "#/definitions/OfferGlobalTravelClass"
+        },
+        "offerTags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "totalPrice": {
+          "$ref": "#/definitions/OfferTotalPrice"
+        }
+      },
+      "title": "OrderItem"
+    },
+    "OrderItemId": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "OrderItemId"
+    },
+    "OrderSegment": {
+      "type": "object",
+      "properties": {
+        "arrivalDateTime": {
+          "type": "string"
+        },
+        "arrivalStation": {
+          "$ref": "#/definitions/Station"
+        },
+        "arrivalTrack": {
+          "type": "string"
+        },
+        "bookableStatus": {
+          "type": "string"
+        },
+        "carrierCode": {
+          "type": "string"
+        },
+        "departureDateTime": {
+          "type": "string"
+        },
+        "departureStation": {
+          "$ref": "#/definitions/Station"
+        },
+        "departureTrack": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "stopStations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StopStation"
+          }
+        },
+        "transportType": {
+          "type": "string"
+        },
+        "vehicle": {
+          "$ref": "#/definitions/Vehicle"
+        }
+      },
+      "title": "OrderSegment"
+    },
+    "OrderTicketingOption": {
+      "type": "object",
+      "properties": {
+        "requiredInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RequiredInfo"
+          }
+        },
+        "selected": {
+          "type": "boolean"
+        },
+        "ticketType": {
+          "type": "string"
+        }
+      },
+      "title": "OrderTicketingOption"
+    },
+    "OrdersData": {
+      "type": "object",
+      "properties": {
+        "actors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Actor"
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "orderItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItem"
+          }
+        },
+        "paymentOptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PaymentOption"
+          }
+        },
+        "pnrRecordLocator": {
+          "type": "string"
+        },
+        "recipientEmails": {
+          "$ref": "#/definitions/RecipientEmails"
+        },
+        "state": {
+          "$ref": "#/definitions/State"
+        },
+        "ticketTimeLimit": {
+          "$ref": "#/definitions/TicketTimeLimit"
+        },
+        "ticketingOptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderTicketingOption"
+          }
+        },
+        "totalPrice": {
+          "$ref": "#/definitions/TotalPrice"
+        }
+      },
+      "title": "OrdersData"
+    },
+    "OrdersProduct": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderCondition"
+          }
+        },
+        "description": {
+          "type": "string"
+        },
+        "family": {
+          "type": "string"
+        },
+        "flexibility": {
+          "type": "string"
+        },
+        "linkedSegments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LinkedSegment"
+          }
+        },
+        "productCharacteristics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "serviceProvider": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "travelClass": {
+          "$ref": "#/definitions/TravelClass"
+        }
+      },
+      "title": "OrdersProduct"
+    },
+    "OrdersRequest": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "$ref": "#/definitions/Source"
+        }
+      },
+      "title": "OrdersRequest"
+    },
+    "OrdersResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OrdersData"
+        },
+        "included": {
+          "$ref": "#/definitions/Included"
+        }
+      },
+      "title": "OrdersResponse"
+    },
+    "PaymentBreakdown": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "$ref": "#/definitions/Amount"
+        },
+        "methodOfPayment": {
+          "$ref": "#/definitions/MethodOfPayment"
+        }
+      },
+      "title": "PaymentBreakdown"
+    },
+    "PaymentOption": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "methodOfPayment": {
+          "$ref": "#/definitions/MethodOfPayment"
+        },
+        "selected": {
+          "type": "boolean"
+        }
+      },
+      "title": "PaymentOption"
+    },
+    "PaymentOptions": {
+      "type": "object",
+      "properties": {
+        "paymentOptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PaymentOption"
+          }
+        }
+      },
+      "title": "PaymentOptions"
+    },
+    "PaymentOptionsResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PaymentOption"
+          }
+        }
+      },
+      "title": "PaymentOptionsResponse"
+    },
+    "Price": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "type": "string"
+        },
+        "total": {
+          "type": "string"
+        }
+      },
+      "title": "Price"
+    },
+    "PriceDetails": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "type": "string"
+        },
+        "total": {
+          "type": "string"
+        }
+      },
+      "title": "PriceDetails"
+    },
+    "Product_": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Condition"
+          }
+        },
+        "description": {
+          "type": "string"
+        },
+        "family": {
+          "type": "string"
+        },
+        "flexibility": {
+          "type": "string"
+        },
+        "linkedSegments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LinkedSegment"
+          }
+        },
+        "productCharacteristics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ticketingOptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TicketingOption"
+          }
+        },
+        "travelClass": {
+          "$ref": "#/definitions/TravelClass"
+        }
+      },
+      "title": "Product_"
+    },
+    "Products": {
+      "type": "object",
+      "properties": {
+        "appliedReductions": {
+          "$ref": "#/definitions/AppliedReductions"
+        },
+        "code": {
+          "type": "string"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Conditions"
+          }
+        },
+        "description": {
+          "type": "string"
+        },
+        "family": {
+          "type": "string"
+        },
+        "flexibility": {
+          "type": "string"
+        },
+        "linkedSegments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LinkedSegments"
+          }
+        },
+        "productCharacteristics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "travelClass": {
+          "$ref": "#/definitions/TravelClass"
+        }
+      },
+      "title": "Products"
+    },
+    "PspOptions": {
+      "type": "object",
+      "properties": {
+        "_3DSecure": {
+          "type": "boolean"
+        },
+        "customerEmail": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "customerName": {
+          "type": "string"
+        },
+        "declinedUrl": {
+          "type": "string"
+        },
+        "exceptionUrl": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "refusedUrl": {
+          "type": "string"
+        },
+        "successUrl": {
+          "type": "string"
+        },
+        "templateName": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "title": "PspOptions"
+    },
+    "RailkitSetting": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "railkitMock": {
+          "type": "boolean"
+        }
+      },
+      "title": "RailkitSetting"
+    },
+    "RecipientEmails": {
+      "type": "object",
+      "properties": {
+        "formattingLanguage": {
+          "type": "string"
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "RecipientEmails"
+    },
+    "RecipientEmailsResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/RecipientEmails"
+        }
+      },
+      "title": "RecipientEmailsResponse"
+    },
+    "RefundConditions": {
+      "type": "object",
+      "properties": {
+        "isRefundable": {
+          "type": "boolean"
+        }
+      },
+      "title": "RefundConditions"
+    },
+    "RelatedActorsId": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "RelatedActorsId"
+    },
+    "RelatedTicketId": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "methods": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "RelatedTicketId"
+    },
+    "RequiredInfo": {
+      "type": "object",
+      "properties": {
+        "actorId": {
+          "type": "string"
+        },
+        "requiredActorData": {
+          "type": "string"
+        }
+      },
+      "title": "RequiredInfo"
+    },
+    "ScrollToken": {
+      "type": "object",
+      "properties": {
+        "earlier": {
+          "type": "string"
+        },
+        "later": {
+          "type": "string"
+        }
+      },
+      "title": "ScrollToken"
+    },
+    "SearchCriteria": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "type": "string"
+        },
+        "dateTime": {
+          "$ref": "#/definitions/DateTime"
+        },
+        "destination": {
+          "type": "string"
+        },
+        "distributor": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "travelersInInput": {
+          "$ref": "#/definitions/TravelersInInput"
+        }
+      },
+      "title": "SearchCriteria"
+    },
+    "SearchRequest": {
+      "type": "object",
+      "properties": {
+        "searchCriteria": {
+          "$ref": "#/definitions/SearchCriteria"
+        }
+      },
+      "title": "SearchRequest"
+    },
+    "SearchResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/DataSearch"
+        }
+      },
+      "title": "SearchResponse"
+    },
+    "SearchTraveler": {
+      "type": "object",
+      "properties": {
+        "dateOfBirth": {
+          "type": "string"
+        }
+      },
+      "title": "SearchTraveler"
+    },
+    "Segment": {
+      "type": "object",
+      "properties": {
+        "arrivalDateTime": {
+          "type": "string"
+        },
+        "arrivalStation": {
+          "$ref": "#/definitions/Station"
+        },
+        "arrivalTrack": {
+          "type": "string"
+        },
+        "bookableStatus": {
+          "type": "string"
+        },
+        "carrierCode": {
+          "type": "string"
+        },
+        "co2Emission": {
+          "type": "string"
+        },
+        "departureDateTime": {
+          "type": "string"
+        },
+        "departureStation": {
+          "$ref": "#/definitions/Station"
+        },
+        "departureTrack": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "servicesOnBoard": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ServicesOnBoard"
+          }
+        },
+        "stopStations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StopStation"
+          }
+        },
+        "transportType": {
+          "type": "string"
+        },
+        "vehicle": {
+          "$ref": "#/definitions/Vehicle"
+        }
+      },
+      "title": "Segment"
+    },
+    "SelectedOffers": {
+      "type": "object",
+      "properties": {
+        "accommodationCategory": {
+          "type": "string"
+        },
+        "accommodations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Accommodation"
+          }
+        },
+        "admissions": {
+          "$ref": "#/definitions/Admissions"
+        },
+        "ancillaries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Ancillaries"
+          }
+        },
+        "direction": {
+          "type": "string"
+        },
+        "flexibilityLevel": {
+          "type": "string"
+        },
+        "globalTravelClass": {
+          "$ref": "#/definitions/GlobalTravelClass"
+        },
+        "id": {
+          "type": "string"
+        },
+        "itineraryId": {
+          "$ref": "#/definitions/ItineraryId"
+        },
+        "totalPrice": {
+          "$ref": "#/definitions/TotalPrice"
+        },
+        "withRestrictions": {
+          "type": "boolean"
+        }
+      },
+      "title": "SelectedOffers"
+    },
+    "ServicesOnBoard": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        }
+      },
+      "title": "ServicesOnBoard"
+    },
+    "Source": {
+      "type": "object",
+      "properties": {
+        "cartId": {
+          "type": "string"
+        },
+        "example": {
+          "type": "string"
+        },
+        "parameter": {
+          "type": "string"
+        },
+        "pointer": {
+          "type": "string"
+        }
+      },
+      "title": "Source"
+    },
+    "State": {
+      "type": "object",
+      "properties": {
+        "exchangeInProgress": {
+          "type": "boolean"
+        },
+        "locked": {
+          "type": "boolean"
+        }
+      },
+      "title": "State"
+    },
+    "Station": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "Station"
+    },
+    "StopStation": {
+      "type": "object",
+      "properties": {
+        "arrivalDateTime": {
+          "type": "string"
+        },
+        "arrivalTrack": {
+          "type": "string"
+        },
+        "borderPoint": {
+          "type": "boolean"
+        },
+        "departureDateTime": {
+          "type": "string"
+        },
+        "departureTrack": {
+          "type": "string"
+        },
+        "station": {
+          "$ref": "#/definitions/Station"
+        }
+      },
+      "title": "StopStation"
+    },
+    "Ticket": {
+      "type": "object",
+      "properties": {
+        "accommodationIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AccommodationId"
+          }
+        },
+        "actorIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ActorId"
+          }
+        },
+        "admissionIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AdmissionId"
+          }
+        },
+        "afterSalesConditions": {
+          "$ref": "#/definitions/AfterSalesConditions"
+        },
+        "distributorCode": {
+          "type": "string"
+        },
+        "distributorTicketNumber": {
+          "type": "string"
+        },
+        "groupReference": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "issuance": {
+          "$ref": "#/definitions/Issuance"
+        },
+        "orderItemId": {
+          "$ref": "#/definitions/OrderItemId"
+        },
+        "providerTicketNumber": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "Ticket"
+    },
+    "TicketTimeLimit": {
+      "type": "object",
+      "properties": {
+        "effectiveTicketTimeLimit": {
+          "type": "string"
+        },
+        "overridden": {
+          "type": "boolean"
+        },
+        "overrideAllowed": {
+          "type": "boolean"
+        },
+        "technicalTicketTimeLimit": {
+          "type": "string"
+        }
+      },
+      "title": "TicketTimeLimit"
+    },
+    "TicketingOption": {
+      "type": "object",
+      "properties": {
+        "ticketType": {
+          "type": "string"
+        }
+      },
+      "title": "TicketingOption"
+    },
+    "TicketingOptionsRequest": {
+      "type": "object",
+      "properties": {
+        "ticketingOptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderTicketingOption"
+          }
+        }
+      },
+      "title": "TicketingOptionsRequest"
+    },
+    "TicketingOptionsResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderTicketingOption"
+          }
+        }
+      },
+      "title": "TicketingOptionsResponse"
+    },
+    "TicketsRequest": {
+      "type": "object",
+      "properties": {
+        "pspOptions": {
+          "$ref": "#/definitions/PspOptions"
+        }
+      },
+      "title": "TicketsRequest"
+    },
+    "TicketsResponse": {
+      "type": "object",
+      "title": "TicketsResponse"
+    },
+    "TimeRange": {
+      "type": "object",
+      "properties": {
+        "endDateTime": {
+          "type": "string"
+        },
+        "startDateTime": {
+          "type": "string"
+        }
+      },
+      "title": "TimeRange"
+    },
+    "TotalPrice": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "type": "string"
+        },
+        "total": {
+          "type": "string"
+        }
+      },
+      "title": "TotalPrice"
+    },
+    "TrafficHub": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "TrafficHub"
+    },
+    "TravelClass": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        }
+      },
+      "title": "TravelClass"
+    },
+    "TravelOffer": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "itinerary": {
+          "$ref": "#/definitions/Itinerary"
+        },
+        "offers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OffersData"
+          }
+        }
+      },
+      "title": "TravelOffer"
+    },
+    "Travelers": {
+      "type": "object",
+      "properties": {
+        "dateOfBirth": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "retrievedFromProfile": {
+          "type": "boolean"
+        }
+      },
+      "title": "Travelers"
+    },
+    "TravelersInInput": {
+      "type": "object",
+      "properties": {
+        "travelers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SearchTraveler"
+          }
+        }
+      },
+      "title": "TravelersInInput"
+    },
+    "Vehicle": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "vehicleTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "Vehicle"
+    },
+    "Warning": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/definitions/Source"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "title": "Warning"
+    }
+  }
+}

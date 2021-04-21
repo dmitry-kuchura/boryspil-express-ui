@@ -1,0 +1,10 @@
+<mat-form-field floatLabel="never" class="w-100 form-field-no-bottom-padding round-input pb-1 pt-1" [formGroup]="form">
+  <input (click)="picker.open()" matInput (dateChange)="saveData($event)"
+         placeholder="Choose a date"
+         [satDatepicker]="picker"
+         formControlName="date"
+         [min]="todayDate"
+         >
+  <sat-datepicker class="mt-3" #picker [rangeMode]="rangeMode"></sat-datepicker>
+  <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
+</mat-form-field>

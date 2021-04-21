@@ -1,0 +1,136 @@
+// break size for responsive design
+$break-small: 575px;
+$break-medium: 768px;
+$break-large: 992px;
+$break-x-large: 1200px;
+
+// Colors
+$rail-primary-text-color: #1c1c1c;
+$rail-secondary-text-color: #4a4a4a;
+$rail-tertiary-text-color: #707070;
+
+$rail-field-label-color: #333333;
+$rail-field-placeholder-color: #9b9b9b;
+
+$rail-primary-action-color: #ce0058;
+$rail-primary-action-disabled-color: #9b9b9b;
+$rail-other-action-color: #005eb8;
+$rail-secondary-action-color: #4a4a4a;
+$rail-btn-text-color: #ffffff;
+
+
+$rail-border-color: #cccccc;
+$rail-required-star-color: #bf292a;
+
+// Section's title
+@mixin section-title {
+  font-size: 20px;
+  font-family: "Amadeus", sans-serif;
+  color: $rail-primary-text-color;
+}
+
+// Buttons
+@mixin rail-primary-btn {
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  padding: 0.375rem 1.5rem;
+  background-color: $rail-primary-action-color;
+  color: $rail-btn-text-color;
+  cursor: pointer;
+  &:focus, &.focus, &:active {
+    outline: none;
+    color: $rail-btn-text-color;
+  }
+  &:disabled, &.disabled{
+    background-color: $rail-primary-action-disabled-color;
+    cursor: initial;
+    box-shadow: 0 0 5px #333;
+  }
+}
+
+// Elements (input, select, ...)
+@mixin rail-element {
+  height: 40px;
+  padding: 10px 15px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: 1px solid $rail-border-color;
+  font-size: 16px;
+  color: $rail-primary-text-color;
+
+  @media screen and (max-width: $break-medium) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: $break-small) {
+    font-size: 13px;
+  }
+
+  &.no-border {
+    border: none;
+  }
+}
+
+@mixin cart-style {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  background-color: #ffffff;
+}
+
+@mixin rail-label {
+  font-size: 14px;
+  @media screen and (max-width: $break-small) {
+    font-size: 13px;
+  }
+  .required {
+    font-size: 16px;
+    @media screen and (max-width: $break-small) {
+      font-size: 13px;
+    }
+    color: $rail-required-star-color;
+  }
+}
+
+@mixin rail-input {
+  border: 1px solid $rail-border-color;
+  border-radius: 20px;
+  @media screen and (max-width: $break-small) {
+    font-size: 13px;
+  }
+  &:focus {
+    border-color: $rail-tertiary-text-color;
+  }
+  &::placeholder {
+    font-size: 14px;
+    font-style: italic;
+    color: $rail-field-placeholder-color;
+
+    @media screen and (max-width: $break-small) {
+      font-size: 13px;
+    }
+  }
+}
+
+@mixin rail-checkbox-label() {
+  input[type="checkbox"]{
+    appearance: none;
+    outline: none;
+  }
+  input[type="checkbox"]::before{
+    top: .125rem;
+    left: 0;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    content: "";
+    background-color: white;
+    border-radius: 0.125rem;
+  }
+
+  input[type="checkbox"]:checked::before {
+    background-color: $rail-primary-action-color;
+    content: '\2713';
+    color: white;
+    padding-left: 2px;
+    padding-bottom: 1px;
+  }
+}

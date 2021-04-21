@@ -1,0 +1,5 @@
+$ama-primary: mat-palette($mat-indigo, 800, 300, 900);
+$ama-accent: mat-palette($mat-light-blue);
+$ama-warn: mat-palette($mat-pink, 600);
+
+$ama-theme: mat-light-theme($ama-primary, $ama-accent, $ama-warn);

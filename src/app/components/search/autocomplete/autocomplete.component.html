@@ -1,0 +1,22 @@
+<mat-form-field floatLabel="never" class="w-100 form-field-no-bottom-padding round-input pb-1 pt-1">
+  <mat-label>{{inputLabel}}</mat-label>
+
+  <input matInput [matAutocomplete]="auto" [formControl]="stateCtrl">
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayName" autoActiveFirstOption
+                    (optionSelected)="onItemSelect($event)">
+    <mat-option *ngFor="let hub of filteredHubs" [value]="hub">
+      <div class="th-container">
+        <ng-container [ngSwitch]="hub.type" class="icon">
+          <mat-icon *ngSwitchCase="'city'">location_city</mat-icon>
+          <mat-icon *ngSwitchCase="'airport'">airplanemode_active</mat-icon>
+          <mat-icon *ngSwitchCase="'railway'">directions_train</mat-icon>
+        </ng-container>
+        <div class="hub-name">{{hub.name}}</div>
+        <div class="country-icon">
+          <div [ngClass]="'flag-icon flag-icon-'+hub.countryCode.toLowerCase()"></div>
+        </div>
+      </div>
+    </mat-option>
+  </mat-autocomplete>
+
+</mat-form-field>

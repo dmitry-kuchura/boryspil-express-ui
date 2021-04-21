@@ -1,0 +1,16 @@
+@import '../../node_modules/@angular/material/theming';
+@import '~saturn-datepicker/theming';
+
+@import "_colors";
+
+$custom-primary: mat-palette($amadeus-blue, 500, 200, 700);
+$custom-accent: mat-palette($amadeus-light-blue, 500, 200, 700);
+$custom-warn: mat-palette($amadeus-cherry, 500, 200, 700);
+$custom-theme: mat-light-theme($custom-primary, $custom-accent, $custom-warn);
+
+$primary: mat-color($custom-primary);
+$accent: mat-color($custom-accent);
+$warn: mat-color($custom-warn);
+
+@include angular-material-theme($custom-theme);
+@include sat-datepicker-theme($custom-theme);

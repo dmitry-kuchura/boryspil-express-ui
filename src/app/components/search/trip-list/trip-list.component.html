@@ -1,0 +1,9 @@
+<ng-container *ngIf="searchResponse$ | async">
+  <div class="m-3">
+    <mat-accordion>
+      <ng-container *ngFor="let offer of (searchResponse$ | async)?.data; first as isFirst">
+        <app-trip-item [offer]="offer" [isFist]="isFirst" *ngIf="offer.isOutbound"></app-trip-item>
+      </ng-container>
+    </mat-accordion>
+  </div>
+</ng-container>

@@ -1,0 +1,20 @@
+<ng-container *ngIf="ordersData">
+  <br>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Booking confirmation #{{ordersData.pnrRecordLocator}}
+      </mat-card-title>
+      <mat-card-subtitle>
+        Dear {{ordersData.actors[0]?.title | titlecase }}
+        {{ordersData.actors[0]?.firstName | titlecase }} {{ordersData.actors[0]?.lastName | titlecase }},<br>
+        We sent you an confirmation email along with your e-ticket.<br>
+        Below you can find your booking confirmation details.
+      </mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+  <h2>Summary of your trip</h2>
+  <app-order-item-information [orderItem]="orderItemOutbound" [actors]="ordersData.actors"></app-order-item-information>
+  <app-order-item-information [orderItem]="orderItemInbound" [actors]="ordersData.actors"></app-order-item-information>
+  <app-order-item-information ></app-order-item-information>
+</ng-container>

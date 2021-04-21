@@ -1,0 +1,17 @@
+.recommendations{
+  background-image: url(../../../../assets/img/recommendations.JPG);
+  background-size: contain;
+  background-repeat: no-repeat;
+  max-width: 80%;
+  flex: 1;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  height: 350px;
+  min-height: 350px;
+
+}

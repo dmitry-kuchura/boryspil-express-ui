@@ -1,0 +1,81 @@
+<button #menuTrigger="matMenuTrigger" mat-stroked-button class="passenger-button pb-1 pt-1" [matMenuTriggerFor]="passMenu">{{passengers.getCount()}}
+  Traveler{{passengers.getCount() != 1 ? 's' : ''}}
+  <mat-icon color="accent">keyboard_arrow_down</mat-icon>
+</button>
+<mat-menu #passMenu="matMenu">
+  <div class="m-3" (click)="$event.stopPropagation();">
+    <div class="justify-content-center">
+      <h4 class="text-center">{{passengers.getCount()}} Traveler{{passengers.getCount() > 1 ? 's' : ''}}</h4>
+      <div class="d-flex align-items-center justify-content-between">
+        <span class="ml-2">Adults</span>
+        <div class="d-flex align-items-center">
+          <button disabled="{{passengers.adult == 0}}" mat-icon-button color="primary"
+                  (click)="removePassenger('adult')">
+            <mat-icon>remove_circle_outline</mat-icon>
+          </button>
+          <span>{{passengers.adult}}</span>
+          <button disabled="{{passengers.getCount()>8}}" mat-icon-button color="primary" (click)="addPassenger('adult')">
+            <mat-icon>add_circle</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between">
+        <span class="ml-2">Seniors</span>
+        <div class="d-flex align-items-center">
+          <button disabled="{{passengers.senior == 0}}" mat-icon-button color="primary"
+                  (click)="removePassenger('senior')">
+            <mat-icon>remove_circle_outline</mat-icon>
+          </button>
+          <span>{{passengers.senior}}</span>
+          <button disabled="{{passengers.getCount()>8}}" mat-icon-button color="primary" (click)="addPassenger('senior')">
+            <mat-icon>add_circle</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between">
+        <span class="ml-2">Youth</span>
+        <div class="d-flex align-items-center">
+          <button disabled="{{passengers.youth == 0}}" mat-icon-button color="primary"
+                  (click)="removePassenger('youth')">
+            <mat-icon>remove_circle_outline</mat-icon>
+          </button>
+          <span>{{passengers.youth}}</span>
+          <button disabled="{{passengers.getCount()>8}}" mat-icon-button color="primary" (click)="addPassenger('youth')">
+            <mat-icon>add_circle</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between">
+        <span class="ml-2">Children</span>
+        <div class="d-flex align-items-center">
+          <button disabled="{{passengers.children == 0}}" mat-icon-button color="primary"
+                  (click)="removePassenger('children')">
+            <mat-icon>remove_circle_outline</mat-icon>
+          </button>
+          <span>{{passengers.children}}</span>
+          <button disabled="{{passengers.getCount()>8}}" mat-icon-button color="primary" (click)="addPassenger('children')">
+            <mat-icon>add_circle</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between">
+        <span class="ml-2">Infant</span>
+        <div class="d-flex align-items-center">
+          <button disabled="{{passengers.infant == 0}}" mat-icon-button color="primary"
+                  (click)="removePassenger('infant')">
+            <mat-icon>remove_circle_outline</mat-icon>
+          </button>
+          <span>{{passengers.infant}}</span>
+          <button disabled="{{passengers.getCount()>8}}" mat-icon-button color="primary" (click)="addPassenger('infant')">
+            <mat-icon>add_circle</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="d-flex">
+        <button mat-stroked-button color="primary" class="w-100" (click)="menuTrigger.closeMenu() //noinspection UnresolvedFunction">Ok</button>
+      </div>
+    </div>
+  </div>
+</mat-menu>
+
+

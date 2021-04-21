@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-center align-items-center">
+  <app-autocomplete class="flex-grow-1" #autocompleteFrom (itemSelected)="onFromSelected($event)" inputLabel="Departure"></app-autocomplete>
+
+  <div>
+    <button mat-mini-fab color="primary" class="mat-elevation-z1 swap-button" (click)="swapTrafficHubs()">
+      <mat-icon aria-label="Swap stations">swap_horiz</mat-icon>
+    </button>
+  </div>
+
+  <app-autocomplete class="flex-grow-1" #autocompleteTo inputLabel="Arrival" (itemSelected)="onToSelected($event)"></app-autocomplete>
+
+  <div class="ml-3">
+    <app-datepicker #datePicker (changeData)="saveData($event)" [rangeMode]="false"></app-datepicker>
+  </div>
+
+  <div class="ml-3">
+    <button (click)="submit()" class="search-button" mat-mini-fab color="warn">
+      <mat-icon aria-label="Search">search</mat-icon>
+    </button>
+  </div>
+</div>

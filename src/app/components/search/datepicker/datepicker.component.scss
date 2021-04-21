@@ -1,0 +1,14 @@
+.datepicker-width{
+  width: 12em;
+}
+
+::ng-deep .mat-form-field-flex{
+  align-items: center !important;
+}
+
+.round-input{
+  background: white;
+  border: 2px solid white;
+  border-radius: 25px;
+  height: 2em;
+}

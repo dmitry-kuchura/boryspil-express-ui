@@ -1,0 +1,30 @@
+<div class="fare-offer">
+  <div class="fare-name">
+    <span *ngIf="selectedClass === '002'">2nd Class</span>
+    <span *ngIf="selectedClass === '001'">1st Class</span>
+
+  </div>
+  <div class="fare-delivery">
+    <span>Delivered by: eTicket</span>
+  </div>
+  <mat-radio-group
+    [(ngModel)]="selectedOffer"
+    *ngFor="let offer of filteredOffers">
+    <div class="d-flex cursor-pointer justify-content-between full-width offer-selection align-items-center mb-2 mt-2"
+         [ngClass]="selectedOffer === offer ? 'selected' : null"
+         (click)="selectedOffer = offer">
+      <mat-radio-button color="primary" [value]="offer" class="ml-3 font-weight-bold">
+          {{getFlexibilityLevel(offer.flexibilityLevel)}}
+      </mat-radio-button>
+      <div class="mr-3 font-weight-bold">
+        {{offer.totalPrice.amount | currency: offer.totalPrice.currency}}
+      </div>
+    </div>
+    <app-offer-details *ngIf="offer === selectedOffer" [offerId]="offer.id"></app-offer-details>
+  </mat-radio-group>
+  <div class="button">
+    <button class="add-button" mat-raised-button color="warn" (click)="addToBasket(selectedOffer.id)">
+      Select ({{selectedOffer.totalPrice.amount | currency: selectedOffer.totalPrice.currency}})
+    </button>
+  </div>
+</div>

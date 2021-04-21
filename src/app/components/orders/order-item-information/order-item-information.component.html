@@ -1,0 +1,58 @@
+<!-- Itinerary detail -->
+<mat-card *ngIf="orderItem?.itinerary">
+  <mat-card-content>
+    <div class="col panel-detail">
+      <div class="col-12 p-0">
+        <div class="row head">
+          <div class="d-none d-md-flex col-6 p-0">
+            <div *ngIf="orderItem?.itinerary.origin" class="origin">
+              {{orderItem?.itinerary?.origin.name}}
+            </div>
+            <span class="ama-icon-right-arrow"></span>
+            <div *ngIf="orderItem?.itinerary.destination" class="destination">
+              {{orderItem?.itinerary?.destination.name}}
+            </div>
+          </div>
+          <div class="col-8 col-md-6 p-0">
+            <div class="date text-right" *ngIf="orderItem?.itinerary?.departureDateTime">
+              {{orderItem?.itinerary?.departureDateTime | date:'EEEE MMM d, y'}}
+            </div>
+          </div>
+        </div>
+        <hr>
+        <!-- fare details -->
+        <div class="fare-itinerary d-flex row justify-content-center px-2">
+          <div class="col-4 col-md-3 fare-itinerary-item">
+            <div class="time">{{orderItem?.itinerary?.departureDateTime | date:'shortTime'}}</div>
+            <div class="station"> <span class="fare-itinerary-sub-item">{{orderItem?.itinerary?.origin?.name}}</span></div>
+          </div>
+          <div class="col-4 col-md-3 fare-itinerary-item">
+            <div class="time">{{orderItem?.itinerary?.arrivalDateTime | date:'shortTime'}}</div>
+            <div class="station fare-itinerary-sub-item">{{orderItem?.itinerary?.destination?.name}}</div>
+          </div>
+          <div class="col-4 col-md-3 fare-itinerary-item">
+            <div class="duration">{{orderItem?.itinerary?.duration}}</div>
+          </div>
+        </div>
+
+        <hr>
+        <!-- Traveler info -->
+        <div class="traveler-info-wrapper mt-3">
+          <div class="row">
+            <div class="col-6 col-md-3 mb-3 mb-md-0">
+              <div class="col-12 title-cell text-md-center p-0">Traveler name</div>
+              <div *ngFor="let actor of actors" class="col-12 text-md-center p-0">
+                {{actor.firstName | titlecase }}
+                {{actor.lastName | titlecase }}</div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="col-12 title-cell text-md-center p-0">Date of Birth
+              </div>
+              <div *ngFor="let actor of actors" class="col-12 text-md-center p-0">{{actor.dateOfBirth}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

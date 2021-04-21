@@ -1,0 +1,35 @@
+
+.swap-button {
+  margin: -0.25em;
+  z-index: 1;
+}
+
+.toggle-group {
+  border-radius: 30px !important;
+}
+
+.toggle-button{
+  background-color: rgba(0, 0, 0, 0.16);
+  font-size: 0.85em;
+  color: white;
+}
+
+.mat-button-toggle-label-content{
+  line-height: 25px !important;
+}
+
+.mat-button-toggle-checked {
+  background-color: #f2f2f2 !important;
+  color: #000000;
+}
+
+.passenger-button{
+  background-color: white;
+  border-radius: 25px;
+  //height: 2.7em;
+  .mat-button-wrapper{
+    align-items: center !important;
+    padding-left: 0.25em;
+  }
+
+}

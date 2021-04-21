@@ -1,0 +1,103 @@
+* {
+  margin: 0
+}
+
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp");
+
+@import "df-styles/material_theme";
+@import "df-styles/material_typography";
+@import "df-styles/_fonts";
+@import "df-styles/_icon.font";
+
+/* bootstrap utilities */
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+
+.mat-drawer-content {
+  overflow-y: hidden !important
+}
+
+main.main-container {
+  padding: 20px
+}
+
+.mat-row:nth-child(even) {
+  background-color: #fafafa
+}
+
+.mat-row:hover {
+  background-color: #f7f7f7
+}
+
+tr.mat-footer-row, tr.mat-row {
+  height: 41px !important
+}
+
+.mat-cell, .mat-footer-cell {
+  font-size: 16px
+}
+
+.mat-header-cell {
+  font-size: 16px
+}
+
+tr.mat-header-row {
+  height: 45px
+}
+
+.full-width {
+  width: 100%;
+}
+
+@import "~flag-icon-css/css/flag-icon.css";
+
+.disable-element {
+  pointer-events: none;
+  opacity: 0.50;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
+
+.mat-button-wrapper {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+
+.mat-tooltip {
+  font-size: 0.825rem;
+}
+
+.color-primary {
+  color: $primary;
+}
+
+.color-accent {
+  color: $accent;
+}
+
+.color-warn {
+  color: $warn;
+}
+
+.color-grey {
+  color: #9b9b9b
+}
+
+.toaster-position {
+  position: fixed;
+  top: 0.45rem;
+  right: 4rem;
+  left: auto;
+}
+
+.mat-icon {
+  vertical-align: middle;
+}
+
+.search-spacer {
+  flex: 1 1 auto;
+}
