@@ -1,38 +1,25 @@
-<div class="d-flex flex-column" *ngFor="let segment of (itinerariesResponse$ | async)?.data.segments; first as isFirst; last as isLast">
+<div class="d-flex flex-column" *ngFor="let segment of segments">
   <div class="d-flex">
     <div class="d-flex flex-column align-items-center justify-content-between m-2">
-      <div>{{segment.departureDateTime | date: 'h:mm a'}}</div>
+      <div>{{ segment.arrivalTime }}</div>
       <div class="color-grey m-1">
         <mat-icon>train</mat-icon>
       </div>
-      <div>{{segment.arrivalDateTime | date: 'h:mm a'}}</div>
+      <div>{{ segment.departureTime }}</div>
     </div>
+
     <div class="d-flex flex-column align-items-center justify-content-between m-2">
-      <ng-template #circle>
-          <div class="circle"></div>
-      </ng-template>
-      <ng-template #line>
-        <div class="d-flex align-items-center h10">
-          <div class="line"></div>
-        </div>
-      </ng-template>
-      <ng-container *ngIf="isFirst; then circle else line"></ng-container>
-      <div class="vertical-stroked-line"></div>
-      <ng-container *ngIf="isLast; then circle else line"></ng-container>
-    </div>
-    <div class="d-flex flex-column justify-content-between m-2">
-      <div>{{segment.departureStation.name}}</div>
-      <div class="d-flex align-items-center">
-        <span class="train-reference mr-2">IC 9693</span>
-        <span>({{segment.stopStations?.length}} stops)</span>
+      <div class="d-flex align-items-center h10">
+        <div class="line"></div>
       </div>
-      <div>{{segment.arrivalStation.name}}</div>
+    </div>
+
+    <div class="d-flex flex-column justify-content-between align-self-center m-2">
+      <div class="d-flex align-items-center">
+        <span class="train-reference mr-2">
+          {{ segment.trafficHub.name }}
+        </span>
+      </div>
     </div>
   </div>
-<!--   <div *ngIf="!isLast" class="d-flex align-items-center">-->
-<!--     <span>-->
-<!--       <mat-icon class="color-grey">timer</mat-icon>-->
-<!--     </span>-->
-<!--     <span *ngIf="segment?." class="ml-2">connection time {{segment.arrivalDateTime}} min</span>-->
-<!--   </div>-->
 </div>

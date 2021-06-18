@@ -30,7 +30,6 @@ import {EffectsModule} from '@ngrx/effects';
 import {OrdersComponent} from './components/orders/orders.component';
 import {OrderItemInformationComponent} from './components/orders/order-item-information/order-item-information.component';
 import {OrderFinancialTransactionsComponent} from './components/orders/order-financial-transactions/order-financial-transactions.component';
-import {OfferDetailsComponent} from './components/search/trip-list/trip-item/offer-details/offer-details.component';
 import {TripItemComponent} from './components/search/trip-list/trip-item/trip-item.component';
 
 @NgModule({
@@ -49,7 +48,6 @@ import {TripItemComponent} from './components/search/trip-list/trip-item/trip-it
     OrdersComponent,
     OrderItemInformationComponent,
     OrderFinancialTransactionsComponent,
-    OfferDetailsComponent,
     TripItemComponent,
   ],
   imports: [
