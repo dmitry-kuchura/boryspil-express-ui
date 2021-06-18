@@ -2,6 +2,7 @@
   height: 50px;
   border-radius: 4px;
   border: 1px solid #979797;
+
   &:hover, &:focus, &.selected {
     box-shadow: 0 0 4px 0 #005eb8;
     border: solid 1px #005eb8;
@@ -10,7 +11,7 @@
 }
 
 
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
 }
 
@@ -45,4 +46,9 @@
     cursor: pointer;
     height: 40px;
   }
+}
+
+.line {
+  border-top: 70px solid #9b9b9b;
+  width: 5px;
 }

@@ -3,8 +3,8 @@ import * as moment from 'moment';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../../../store/store';
 import {MatExpansionPanel} from '@angular/material/expansion';
-import {OfferListComponent} from './offer-list/offer-list.component';
 import {Offer} from '../../../../api-repository/model/offer';
+import {OfferDetailsComponent} from './offer-details/offer-details.component';
 
 @Component({
   selector: 'app-trip-item',
@@ -14,7 +14,7 @@ import {Offer} from '../../../../api-repository/model/offer';
 export class TripItemComponent implements OnInit {
   @ViewChild('panel', {static: false}) panel: MatExpansionPanel;
 
-  @ViewChild('offer_list', {static: false}) offerList: OfferListComponent;
+  @ViewChild('offer_list', {static: false}) offerList: OfferDetailsComponent;
 
   @Input()
   offer: Offer;

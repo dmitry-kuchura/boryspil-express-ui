@@ -1,0 +1,25 @@
+<div class="d-flex flex-column" *ngFor="let segment of segments">
+  <div class="d-flex">
+    <div class="d-flex flex-column align-items-center justify-content-between m-2">
+      <div>{{ segment.arrivalTime }}</div>
+      <div class="color-grey m-1">
+        <mat-icon>train</mat-icon>
+      </div>
+      <div>{{ segment.departureTime }}</div>
+    </div>
+
+    <div class="d-flex flex-column align-items-center justify-content-between m-2">
+      <div class="d-flex align-items-center h10">
+        <div class="line"></div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column justify-content-between align-self-center m-2">
+      <div class="d-flex align-items-center">
+        <span class="train-reference mr-2">
+          {{ segment.trafficHub.name }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

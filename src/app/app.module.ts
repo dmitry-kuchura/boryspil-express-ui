@@ -26,12 +26,11 @@ import {NgxLoadingModule} from 'ngx-loading';
 import {TripListComponent} from './components/search/trip-list/trip-list.component';
 import {RouteDetailsComponent} from './components/search/trip-list/route-details/route-details.component';
 import {FaresComponent} from './components/search/fares/fares.component';
-import {OfferListComponent} from './components/search/trip-list/trip-item/offer-list/offer-list.component';
 import {EffectsModule} from '@ngrx/effects';
 import {OrdersComponent} from './components/orders/orders.component';
 import {OrderItemInformationComponent} from './components/orders/order-item-information/order-item-information.component';
 import {OrderFinancialTransactionsComponent} from './components/orders/order-financial-transactions/order-financial-transactions.component';
-import {OfferDetailsComponent} from './components/search/trip-list/trip-item/offer-list/offer-details/offer-details.component';
+import {OfferDetailsComponent} from './components/search/trip-list/trip-item/offer-details/offer-details.component';
 import {TripItemComponent} from './components/search/trip-list/trip-item/trip-item.component';
 
 @NgModule({
@@ -46,7 +45,6 @@ import {TripItemComponent} from './components/search/trip-list/trip-item/trip-it
     DatepickerComponent,
     TripListComponent,
     FaresComponent,
-    OfferListComponent,
     RouteDetailsComponent,
     OrdersComponent,
     OrderItemInformationComponent,

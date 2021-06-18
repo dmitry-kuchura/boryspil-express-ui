@@ -1,6 +1,6 @@
 import {TrafficHub} from './traffic-hub';
 
-export interface Offer {
+export interface Segment {
   arrivalTime?: string;
   departureTime?: string;
   trafficHub: TrafficHub;
