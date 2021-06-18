@@ -2,7 +2,7 @@ import {MatAutocompleteSelectedEvent} from '@angular/material';
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {ApiService} from '../../../api-repository/api.service';
-import {TrafficHub} from '../../../api-repository/model/models';
+import {TrafficHub} from '../../../api-repository/model/traffic-hub';
 
 export interface State {
   flag: string;
@@ -41,7 +41,6 @@ export class AutocompleteComponent {
       }
     });
   }
-
 
   private onItemSelect(event: MatAutocompleteSelectedEvent) {
     this.selectedItem = event.option.value;

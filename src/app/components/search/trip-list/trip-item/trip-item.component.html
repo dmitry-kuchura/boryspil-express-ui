@@ -1,18 +1,13 @@
-<mat-expansion-panel hideToggle="true"
-                     #panel
-                     disabled="{{!offer.offers}}"
-                     (opened)="panelOpen(offer.id,
-                             offer.offers)">
+<mat-expansion-panel hideToggle="true" #panel>
   <mat-expansion-panel-header class="p-3">
-
     <div class="d-flex justify-content-between full-width">
       <div class="d-flex align-items-center">
-        <div class="mr-5">
+        <div class="ml-5 mr-5">
           <strong class="depart-time">
             {{ '#' + offer.number }}
           </strong>
         </div>
-        <div class="mr-5">
+        <div class="ml-5 mr-5">
           <strong class="depart-time">
             {{ offer.departureTime }}
           </strong>
@@ -21,7 +16,7 @@
           </div>
         </div>
         <mat-icon>arrow_right_alt</mat-icon>
-        <div class="ml-5">
+        <div class="ml-5 ml-5">
           <strong class="arrival-time">
             {{ offer.arrivalTime }}
           </strong>
@@ -29,32 +24,24 @@
             {{ offer.arrivalTrafficHub.name }}
           </div>
         </div>
-        <div class="ml-5 mt-1">
+        <div class="ml-5 ml-5 mt-1">
           <div class="arrival-time">
-            {{getDuration(offer.duration)}}
+            {{ getDuration(offer.departureTime, offer.arrivalTime) + " Минут" }}
           </div>
           <div class="arrival-station-name">
-            {{ offer.segments.length + " stops"}}
+            {{ offer.segments.length + " Остановки" }}
           </div>
         </div>
-        <div class="ml-5 align-items-center d-flex">
-          <img #img [src]="'../../../assets/img/uzd.png'" class="carrier-logo" alt="carrier-logo">
+        <div class="ml-5 ml-5 align-items-center d-flex">
+          <img [src]="'../../../assets/img/uzd.png'" class="carrier-logo" alt="carrier-logo">
         </div>
       </div>
-
       <div class="ml-3 d-flex justify-content-between">
         <div class="trip-price">
-
           <div class="d-flex justify-content-center flex-column">
-            <div
-              [ngClass]="{'mt-3': selectedClass === '002' && panel.expanded}"
-              (click)="$event.stopPropagation();selectTripClass('002')"
-              class="second-class-price pl-3 pr-3">
-              <div class="price">
-                {{ 50.00 }}
-              </div>
+            <div (click)="selectTripClass()" class="second-class-price pl-3 pr-3">
+              <div class="price"> {{ 79.94 }} грн.</div>
             </div>
-            <div class="selected-second" *ngIf="selectedClass === '002' && panel.expanded"></div>
           </div>
         </div>
       </div>
@@ -62,6 +49,5 @@
 
   </mat-expansion-panel-header>
 
-  <app-offer-list #offer_list *ngIf="offer.offers" [offers]="offer.offers"
-                  [selectedClass]=selectedClass></app-offer-list>
+  <app-offer-list #offer_list *ngIf="offer.segments" [segment]="offer.segments"></app-offer-list>
 </mat-expansion-panel>

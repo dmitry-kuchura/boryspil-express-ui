@@ -1,18 +1,3 @@
-export interface TrafficHubResponse {
-  data: TrafficHub[];
-}
-
-export interface TrafficHub {
-  code?: string;
-  countryCode?: string;
-  name?: string;
-  type?: string;
-}
-
-export interface SearchResponse {
-  data?: DataSearch;
-}
-
 export interface Accommodation {
   availableSlots?: number;
   category?: string;
@@ -94,12 +79,6 @@ export interface Amount {
   currency?: string;
 }
 
-export interface Ancillaries {
-}
-
-export interface AppliedReductions {
-}
-
 export interface AvailablePreferences {
   environmentOptions?: Array<string>;
   nearToOption?: boolean;
@@ -112,33 +91,6 @@ export interface BasicTransportInformation {
   transportType?: string;
   vehicleCategory?: string;
   vehicleCode?: string;
-}
-
-export interface CalendarCriteria {
-  country?: string;
-  currency?: string;
-  destination?: string;
-  distributor?: string;
-  endDate?: string;
-  language?: string;
-  origin?: string;
-  outwardOfferId?: string;
-  productCodes?: Array<string>;
-  returnTripProducts?: boolean;
-  startDate?: string;
-  travelClass?: string;
-  travelers?: Travelers;
-}
-
-
-
-
-export interface CalendarPrice {
-  departureDate?: string;
-  flexibilityLevel?: string;
-  price?: Price;
-  travelClass?: string;
-  withRestrictions?: boolean;
 }
 
 export interface Card {
@@ -171,14 +123,6 @@ export interface Conditions {
   conditionType?: string;
 }
 
-export interface Count {
-  count?: number;
-}
-
-export interface Criteria {
-  searchCriteria?: SearchCriteria;
-}
-
 export interface DataActors {
   dateOfBirth?: string;
   firstName?: string;
@@ -186,13 +130,6 @@ export interface DataActors {
   lastName?: string;
   orderItemIds?: Array<OrderItemId>;
   roles?: Array<string>;
-}
-
-export interface DataCalendar {
-  calendarCriteria?: CalendarCriteria;
-  calendarPrices?: Array<CalendarPrice>;
-  id?: string;
-  timeToLive?: string;
 }
 
 export interface DataItinerary {
@@ -213,7 +150,6 @@ export interface DataItinerary {
 
 export interface DataSearch {
   id?: string;
-  criteria?: Criteria;
   scrollToken?: ScrollToken;
   timeRange?: TimeRange;
   timeToLive?: string;
@@ -511,7 +447,6 @@ export interface Product_ {
 }
 
 export interface Products {
-  appliedReductions?: AppliedReductions;
   code?: string;
   conditions?: Array<Conditions>;
   description?: string;
@@ -571,22 +506,6 @@ export interface ScrollToken {
   later?: string;
 }
 
-export interface SearchCriteria {
-  currency?: string;
-  dateTime?: DateTime;
-  destination?: string;
-  distributor?: string;
-  language?: string;
-  origin?: string;
-  travelersInInput?: TravelersInInput;
-}
-
-export interface SearchRequest {
-  searchCriteria?: SearchCriteria;
-}
-
-
-
 export interface SearchTraveler {
   dateOfBirth?: string;
 }
@@ -613,7 +532,7 @@ export interface SelectedOffers {
   accommodationCategory?: string;
   accommodations?: Array<Accommodation>;
   admissions?: Admissions;
-  ancillaries?: Array<Ancillaries>;
+  ancillaries?: any;
   direction?: string;
   flexibilityLevel?: string;
   globalTravelClass?: GlobalTravelClass;
@@ -719,19 +638,8 @@ export interface Vehicle {
   vehicleTypes?: Array<string>;
 }
 
-export interface Warning {
-  code?: string;
-  detail?: string;
-  source?: Source;
-  status?: number;
-  title?: string;
-}
-
-
-
 export interface DataSearch {
   id?: string;
-  criteria?: Criteria;
   scrollToken?: ScrollToken;
   timeRange?: TimeRange;
   timeToLive?: string;

@@ -19,7 +19,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {SatDatepickerModule, SatNativeDateModule} from 'saturn-datepicker';
 import {DatepickerComponent} from './components/search/datepicker/datepicker.component';
-import {PassengersSelectComponent} from './components/search/passengers-select/passengers-select.component';
 import {DateFormatModule} from './date-format-module/date-format-module';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
@@ -45,7 +44,6 @@ import {TripItemComponent} from './components/search/trip-list/trip-item/trip-it
     SearchFormComponent,
     AutocompleteComponent,
     DatepickerComponent,
-    PassengersSelectComponent,
     TripListComponent,
     FaresComponent,
     OfferListComponent,

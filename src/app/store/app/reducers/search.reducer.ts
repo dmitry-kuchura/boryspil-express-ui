@@ -2,8 +2,7 @@ import {tassign} from 'tassign';
 import {Action, createReducer, createSelector, on} from '@ngrx/store';
 import {AppState} from '../../store';
 import {searchFinished} from '../actions/search.actions';
-import {SearchResponse} from '../../../api-repository/model/models';
-
+import {SearchResponse} from '../../../api-repository/model/response/search-response';
 
 export const key = 'search';
 

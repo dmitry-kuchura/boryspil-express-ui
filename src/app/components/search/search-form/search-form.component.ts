@@ -2,16 +2,14 @@ import {AfterViewInit, Component, OnInit, ViewChild, ViewEncapsulation} from '@a
 import {AutocompleteComponent} from '../autocomplete/autocomplete.component';
 import {MatButtonToggleGroup} from '@angular/material/button-toggle';
 import {DatepickerComponent} from '../datepicker/datepicker.component';
-import {SatDatepickerRangeValue} from 'saturn-datepicker';
-import {Moment} from 'moment';
-import {PassengersSelectComponent, SearchPassengersData} from '../passengers-select/passengers-select.component';
-import {SearchRequest, TrafficHub} from '../../../api-repository/model/models';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../../store/store';
 import {ActivatedRoute, Router} from '@angular/router';
 import {search} from '../../../store/app/actions/search.actions';
 import {deleteAllItineraries} from '../../../store/app/actions/itineraries.actions';
 import {deleteAllOffers} from '../../../store/app/actions/offers.actions';
+import {TrafficHub} from '../../../api-repository/model/traffic-hub';
+import {SearchRequest} from '../../../api-repository/model/request/search-request';
 
 @Component({
   selector: 'app-search-form',
@@ -21,18 +19,17 @@ import {deleteAllOffers} from '../../../store/app/actions/offers.actions';
 })
 export class SearchFormComponent implements OnInit, AfterViewInit {
 
-  constructor(private store: Store<AppState>,
-              private router: Router,
-              private activatedRoute: ActivatedRoute) {
+  constructor(
+    private store: Store<AppState>,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {
 
   }
 
   fromTrafficHub: TrafficHub;
   toTrafficHub: TrafficHub;
   travelDate: Date;
-  roundTripDate: SatDatepickerRangeValue<Moment>;
-  roundTrip = false;
-  searchPassengerData: SearchPassengersData;
 
   @ViewChild('autocompleteFrom', {static: false})
   private autocompleteFrom: AutocompleteComponent;
@@ -43,15 +40,6 @@ export class SearchFormComponent implements OnInit, AfterViewInit {
   @ViewChild('datePicker', {static: false})
   private datePicker: DatepickerComponent;
 
-  @ViewChild('roundtripDatePicker', {static: false})
-  private roundtripDatePicker: DatepickerComponent;
-
-  @ViewChild('toggleGroup', {static: false})
-  private toggleGroup: MatButtonToggleGroup;
-
-  @ViewChild('passengersSelect', {static: false})
-  private passengersSelect: PassengersSelectComponent;
-
   ngOnInit() {
     this.travelDate = new Date();
   }
@@ -60,7 +48,7 @@ export class SearchFormComponent implements OnInit, AfterViewInit {
     this.setTrafficHubsFromLocalStorage();
   }
 
-  private swapTrafficHubs() {
+  swapTrafficHubs() {
     if (this.fromTrafficHub && this.toTrafficHub) {
       const tfFrom = this.fromTrafficHub;
       const tfTo = this.toTrafficHub;

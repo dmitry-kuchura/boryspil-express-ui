@@ -1,6 +1,6 @@
-// search actions
 import {createAction, props} from '@ngrx/store';
-import {SearchRequest, SearchResponse} from '../../../api-repository/model/models';
+import {SearchRequest} from '../../../api-repository/model/request/search-request';
+import {SearchResponse} from '../../../api-repository/model/response/search-response';
 
 export const search = createAction(
   '[Search] Search', props<{searchRequest: SearchRequest}>());

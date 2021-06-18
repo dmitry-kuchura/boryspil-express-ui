@@ -22,6 +22,8 @@
   font-size: 18px;
   font-weight: bold;
   color: #ffffff;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 .selected-second {
@@ -65,4 +67,10 @@
   margin: 24px 0;
 }
 
+mat-expansion-panel-header {
+  color: rgb(0, 0, 0) !important;
+}
 
+mat-expansion-panel {
+  margin: 3px !important;
+}

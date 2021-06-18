@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../../store/store';
-import {SearchResponse} from '../../../api-repository/model/models';
 import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
 import {getSearchResult} from '../../../store/app/reducers/search.reducer';
 import {getSearchById, getSearchByIdAndScrollToken} from '../../../store/app/actions/search.actions';
+import {SearchResponse} from '../../../api-repository/model/response/search-response';
 
 @Component({
   selector: 'app-trip-list',

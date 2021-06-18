@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CartResponse, OffersData} from '../../../../../api-repository/model/models';
-import {Observable} from 'rxjs';
+import {Segment} from '../../../../../api-repository/model/models';
 
 @Component({
   selector: 'app-offer-list',
@@ -8,30 +7,14 @@ import {Observable} from 'rxjs';
   styleUrls: ['./offer-list.component.scss']
 })
 export class OfferListComponent implements OnInit {
-
-  cartResponse$: Observable<CartResponse>;
-
   @Input()
-  offers: OffersData[];
-
-  filteredOffers: OffersData[];
-
-  selectedOffer: OffersData;
-
-  @Input()
-  selectedClass: string;
+  segment: Segment[];
 
   constructor() {
 
   }
 
   ngOnInit() {
-    this.filterOffersBySelectedClass();
-  }
-
-  public filterOffersBySelectedClass() {
-    this.filteredOffers = this.offers.filter(offer => offer.globalTravelClass.code === this.selectedClass);
-    this.selectedOffer = this.filteredOffers[0];
   }
 
   getFlexibilityLevel(id: string): string {
@@ -43,9 +26,5 @@ export class OfferListComponent implements OnInit {
       case '004' :
         return 'Non flexible';
     }
-  }
-
-  addToBasket(id: any) {
-    console.log(id);
   }
 }
