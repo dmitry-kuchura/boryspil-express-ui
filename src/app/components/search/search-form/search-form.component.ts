@@ -13,7 +13,7 @@ import {SearchRequest} from '../../../api-repository/model/request/search-reques
 
 @Component({
   selector: 'app-search-form',
-  templateUrl: './search-form.component.html',
+  templateUrl: './searc h-form.component.html',
   styleUrls: ['./search-form.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })

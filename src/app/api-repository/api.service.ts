@@ -8,20 +8,21 @@ import {catchError, finalize} from 'rxjs/operators';
 import {ItinerariesResponse, OffersResponse} from './model/models';
 import {AppState} from '../store/store';
 import {Store} from '@ngrx/store';
-import {TrafficHubResponse} from './model/response/traffic-hub-response';
 import {SearchRequest} from './model/request/search-request';
 import {SearchResponse} from './model/response/search-response';
+import {TrafficHubResponse} from './model/response/traffic-hub-response';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApiService {
 
-  private API_URL = environment.api_url;
+  public API_URL = environment.api_url;
 
   constructor(
-    private http: HttpClient,
-    private store: Store<AppState>
+    public http: HttpClient,
+    public store: Store<AppState>
   ) {
   }
 
@@ -45,7 +46,7 @@ export class ApiService {
         this.store.dispatch(apiRequestFinished());
       })
     );
-    
+
     return request;
   }
 
